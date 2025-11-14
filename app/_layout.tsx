@@ -1,17 +1,28 @@
 import { Stack } from "expo-router";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import ToastContainer from "toastify-react-native";
 import { ToastProvider } from "../components/Toast/ToastProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+
+const queryClient = new QueryClient();
 export default function RootLayout() {
   return (
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
     <SafeAreaView style={{ flex: 1 }}>
       <ToastProvider>
         <ToastContainer />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen
-            name="splash/index"
+            name="index"
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="splash"
             options={{
               headerShown: false,
             }}
@@ -67,7 +78,7 @@ export default function RootLayout() {
           />
 
           <Stack.Screen
-            name="(tab)"
+            name="(tabs)"
             options={{
               headerTitle: "",
               headerShown: false,
@@ -76,5 +87,31 @@ export default function RootLayout() {
         </Stack>
       </ToastProvider>
     </SafeAreaView>
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 }
+
+
+
+// import React from "react";
+// import { SafeAreaView, StyleSheet } from "react-native";
+// import { Stack } from "expo-router";
+// import ToastContainer from "toastify-react-native";
+// import { ToastProvider } from "../components/Toast/ToastProvider";
+
+// export default function RootLayout() {
+//   return (
+//     <SafeAreaView style={styles.container}>
+//       <ToastProvider>
+//         <ToastContainer />
+//         {/* Let file-based routing auto-register routes */}
+//         <Stack screenOptions={{ headerShown: false }} />
+//       </ToastProvider>
+//     </SafeAreaView>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1 },
+// });
