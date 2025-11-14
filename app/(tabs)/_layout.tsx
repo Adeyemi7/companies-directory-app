@@ -1,5 +1,7 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
+// import {MaterialIcons} from '@expo/vector-icons/';
+
 import { Tabs } from "expo-router";
 
 export default function Layout() {
@@ -38,14 +40,26 @@ export default function Layout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="favourites"
+
+      {/* <Tabs.Screen
+        name="favorites"
         options={{
           title: "Favorites",
           headerShown: false,
 
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="bookmark" color={color} size={size} />
+            <MaterialIcons name="gpp-good" size={size} color={color} />
+          ),
+        }}
+      /> */}
+
+      <Tabs.Screen
+        name="favorites"
+        options={{
+          title: "Favorites",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="bookmark" size={size} color={color} />
           ),
         }}
       />
