@@ -45,7 +45,7 @@ const DefaultPage = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden={true} />
+      <StatusBar hidden={true} backgroundColor={"#051733"}/>
 
       <Animated.View
         style={[styles.logoBox, { transform: [{ scale: scaleAnim }] }]}

@@ -39,7 +39,7 @@ export default function Layout() {
         }}
       />
       <Tabs.Screen
-        name="favorites"
+        name="favourites"
         options={{
           title: "Favorites",
           headerShown: false,

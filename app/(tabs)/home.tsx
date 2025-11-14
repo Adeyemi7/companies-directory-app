@@ -525,7 +525,6 @@ export default function CompanyDirectoryApp() {
           // "https://financialmodelingprep.com/api/v3/cik-list?page=0&limit=100&apikey=r7fqqiJFEFLQrSa7UqXfarNiGEUml1g8"
         );
         const data = await res.json();
-        console.log("Fetched data:", data);
 
         if (Array.isArray(data) && data.length > 0) {
           const topCompanies = data.slice(0, 10).map((item: any) => ({
